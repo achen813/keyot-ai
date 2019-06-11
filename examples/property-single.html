@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Housing: The Real Cost</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+<!--  JavaScript-->
+  <script type="text/javascript" src="map.js"></script>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSIgQOE8qkbnu2eHzFNlvvFtSADlf2eas">
+  </script>
+
+  <!-- =======================================================
+    Theme Name: EstateAgency
+    Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body onload="sendRequest()">
+
+  <div class="click-closed"></div>
+
+  <!--/ Address Header /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single" id="addressHeader">Search Summary</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  <!--/ Address Header End /-->
+
+  <!--/ Property Estimates such as 3 year, zillow, and polk county /-->
+  <section class="property-single nav-arrow-b">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row justify-content-between">
+            <div class="col-md-6 col-lg-5">
+              <div class="property-price d-flex justify-content-center foo">
+			    <div class="col">
+					<div class="row">
+						<h4><strong>3 Year Estimate:</strong></h4><br/>
+					</div>
+					<div class="row">
+						<div class="card-header-c d-flex card-box-ico">
+						  <div class="card-title-c align-self-center">
+							  <div class="row">
+								  <div class="col">
+									<span class="ion-money">$&ensp;</span>
+								  </div>
+								  <div class="col align-self-center ">
+									<h5 id="threeYearEst" class="title-c"></h5>
+								  </div>
+							  </div>
+						  </div>
+						</div>
+					</div><br/>
+				
+					
+					<h4><strong>Current Estimate:&ensp;</strong></h4>
+					<div class="row">
+					&emsp;&emsp;<span class="ion-money">$&ensp;</span>
+					<h5 id="currentEst"></h5>
+					</div>
+				</div>
+      </div>
+      </div>  
+      <!--Property Estimates such as 3 year, zillow, and polk county END -->
+
+      <!--Quick Summary of Housing Info -->
+
+			<div class="col-lg-1 col-md-0"></div>
+			<div class="col-lg-6 col-md-5">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="title-box-d section-t4">
+                      <h3 class="title-d">Quick Summary</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="summary-list">
+                  <ul class="list"></ul>
+                    <li class="d-flex justify-content-between">
+                      <strong>Area:</strong>
+                      <span id= "areaSummary"></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Beds:</strong>
+                      <span id="bedsSummary"></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Baths:</strong>
+                      <span id="bathsSummary"></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Year Built:</strong>
+                      <span id="yearBuiltSummary"></span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Zip Code:</strong>
+                      <span id="zipSummary"></span>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+      <!--Quick Summary of Housing Info End-->
+
+
+      <!--Picture Carousel and Google Maps-->
+			<div class="col-lg-2 col-md-1"></div>
+          </div>
+      <br>
+          <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
+              <div class="carousel-item-b">
+                <img src="img/slide-2.jpg" alt="">
+              </div>
+              <div class="carousel-item-b">
+                <img src="img/slide-3.jpg" alt="">
+              </div>
+              <div class="carousel-item-b">
+                <img src="img/slide-1.jpg" alt="">
+              </div>
+            </div>
+  
+        <div class="col-md-10 offset-md-1">
+          <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map"
+                aria-selected="false">Location</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
+              <div id="map" style="width: 800px; height: 500px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!--Picture Carousel End and Google Map END-->
+
+      <!-- Find New Button -->
+      <a href="index.html">
+          <button type="submit" style="margin-top:10px; float:right;" class="btn btn-b">Find New</button>
+      </a>
+
+
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/popper/popper.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/scrollreveal/scrollreveal.min.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
